@@ -5,8 +5,8 @@ public class DragonMove : MonoBehaviour
     public float speed = 5;
     public bool goingUp = true;
 
-    public float ratWait = 1, fireballWait = 2;
-    public float ratTimer = 0, fireballTimer = 0;
+    private float ratWait = 1, fireballWait = 2;
+    private float ratTimer = 0, fireballTimer = 0;
 
     public GameObject rat;
     public GameObject fireball;
@@ -29,6 +29,7 @@ public class DragonMove : MonoBehaviour
             fireballTimer = 0;
             fireballWait = Random.Range(2f, 3f);
         }
+
 
         transform.Translate(transform.up * speed * Time.deltaTime);
 

@@ -28,8 +28,21 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(-transform.up * speed * Time.deltaTime);
             }
         }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            {
+                transform.Translate(transform.right * speed * Time.deltaTime);
+            }
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            {
+                transform.Translate(-transform.right * speed * Time.deltaTime);
+            }
+        }
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4f, 4f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.5f, 4f), transform.position.y, transform.position.z);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,9 +51,17 @@ public class PlayerMovement : MonoBehaviour
             if (collision.GetComponent<ProjectileMove>() != null)
             {
                 scoreVal += collision.GetComponent<ProjectileMove>().points;
+
+                scoreBox.text = "Score: " + scoreVal;
+            }
+            if (collision.GetComponent<FallingFire>() != null)
+            {
+                scoreVal += collision.GetComponent<FallingFire>().points;
+
                 scoreBox.text = "Score: " + scoreVal;
             }
             Destroy(collision.gameObject);
+
         }
     }
     
