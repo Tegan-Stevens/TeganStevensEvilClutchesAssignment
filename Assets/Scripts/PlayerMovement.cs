@@ -1,12 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float speed = 4;
+    private int scoreVal = 0;
+
+    public TextMeshProUGUI scoreBox;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,4 +31,22 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4f, 4f), transform.position.z);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            if (collision.GetComponent<ProjectileMove>() != null)
+            {
+                scoreVal += collision.GetComponent<ProjectileMove>().points;
+                scoreBox.text = "Score: " + scoreVal;
+            }
+            Destroy(collision.gameObject);
+        }
+    }
+    
+    
+            
+        
+    
+    
 }
