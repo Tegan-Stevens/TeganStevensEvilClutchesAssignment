@@ -3,7 +3,10 @@ using UnityEngine;
 public class BulletShip : MonoBehaviour
 {
     public float speed = 3;
+
     public GameObject bullet;
+    public GameObject explosion;
+
     public float bulletTimer = 0, bulletWait = 3;
     // Update is called once per frame
     void Update()
@@ -29,6 +32,8 @@ public class BulletShip : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
             Destroy(collision.gameObject);
+            GameObject temp = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(temp, 1f);
             Destroy(gameObject);
         }
     }

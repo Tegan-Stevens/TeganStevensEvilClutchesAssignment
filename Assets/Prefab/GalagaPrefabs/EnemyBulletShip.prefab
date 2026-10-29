@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletShip
   speed: 1
   bullet: {fileID: 7595191914589494287, guid: 052135997f40cf240853551ea28402d8, type: 3}
+  explosion: {fileID: 5800875094109709738, guid: 1941e97fbcfea9c4b898c34bc0e2f080, type: 3}
   bulletTimer: 0
   bulletWait: 2
 --- !u!61 &-7486073339713750155
