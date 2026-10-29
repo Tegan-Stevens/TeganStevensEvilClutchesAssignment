@@ -1,10 +1,14 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GalagaMovement : MonoBehaviour
 {
     float speed = 5;
 
+    public Image[] lives;
     public GameObject bullet;
+
+    public int lifeCount = 3;
     void Update()
     {
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -34,9 +38,23 @@ public class GalagaMovement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Instantiate(bullet, transform.position + new Vector3(0,.5f,0), Quaternion.identity);
+            Instantiate(bullet, transform.position + new Vector3(0, .5f, 0), Quaternion.identity);
         }
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7f, 7f), Mathf.Clamp(transform.position.y, -4f, 4f), transform.position.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            lifeCount -= 1;
+            if (lifeCount <= 0)
+            {
+                lifeCount = 0;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            lives[lifeCount].enabled = false;
+        }
     }
 }
