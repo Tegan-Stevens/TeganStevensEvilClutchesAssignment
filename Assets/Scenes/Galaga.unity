@@ -1083,6 +1083,9 @@ MonoBehaviour:
   enemyWaves:
   - {fileID: 5323315978794532424, guid: 8115e9262163a954594858e092fe567c, type: 3}
   - {fileID: 785252467280456732, guid: 34a1afc328159444dbd0c6f5c30c75bb, type: 3}
+  - {fileID: 6009292704287522840, guid: ad0f2fd03c91a004da7055a12a4aefcb, type: 3}
+  - {fileID: 2210962727857658527, guid: 9442438f802c09542ad4d8a38e4d74ed, type: 3}
+  - {fileID: 6674055342554826562, guid: 53d3a5f0aa903e5439402479275cf3c9, type: 3}
   waveTimer: 0
   waveWait: 3
 --- !u!1 &1930743519

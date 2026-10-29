@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeekingShip
   explosion: {fileID: 5800875094109709738, guid: 1941e97fbcfea9c4b898c34bc0e2f080, type: 3}
-  speed: 2
+  speed: 3
   maxDegrees: 10
 --- !u!61 &8464370064794075753
 BoxCollider2D:
